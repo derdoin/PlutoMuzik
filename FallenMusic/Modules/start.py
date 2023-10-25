@@ -23,14 +23,14 @@ async def fallen_st(_, message: Message):
                 query = f"https://www.youtube.com/watch?v={query}"
                 results = VideosSearch(query, limit=1)
                 for result in (await results.next())["result"]:
-                    title = result["başlık"]
-                    duration = result["süre"]
+                    title = result["title"]
+                    duration = result["duration"]
                     views = result["viewCount"]["short"]
                     thumbnail = result["thumbnails"][0]["url"].split("?")[0]
-                    channellink = result["kanal"]["link"]
-                    channel = result["kanal adı"]["name"]
+                    channellink = result["channel"]["link"]
+                    channel = result["channel"]["name"]
                     link = result["link"]
-                    published = result["tamamlanma süresi"]
+                    published = result["publishedTime"]
                 searched_text = f"""
 ➻ **Parça Bilgileri** 
 
